@@ -1,4 +1,4 @@
-```markdown
+
 # ChefAI - Sugestor de Receitas Inteligente
 
 ###### Resumo
@@ -43,4 +43,4 @@ Se você não tiver chave, é possível adaptar `LLMClient` para retornar respos
 ###### Observações de segurança
 Não comite `config.properties` com chave. Use variáveis de ambiente/segredos no CI quando necessário.
 
-```
+
