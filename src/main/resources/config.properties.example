@@ -1,0 +1,4 @@
+# Copy this file to config.properties and fill in values
+api.provider=openai
+api.url=https://api.openai.com/v1/chat/completions
+api.key=REPLACE_WITH_YOUR_API_KEY

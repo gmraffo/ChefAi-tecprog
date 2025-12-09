@@ -1,0 +1,53 @@
+```plantuml
+@startuml
+package com.cheffai.model {
+  class Ingredient {
+    -String name
+    -String amount
+    -double approximateQuantity
+    +getName()
+    +getAmount()
+  }
+  class Recipe {
+    -String name
+    -List<RecipeIngredient> ingredients
+    -List<String> steps
+    -int timeMinutes
+  }
+  class Recipe::RecipeIngredient {
+    -String name
+    -String amount
+    -boolean hasIngredient
+  }
+  class User {
+    -String name
+    -List<Ingredient> pantry
+    -List<String> dietaryRestrictions
+  }
+}
+
+package com.cheffai.suggestor {
+  abstract class SuggestorBase {
+    -String name
+    +suggest(List<Ingredient>, List<String>)
+  }
+  class SuggestorRapido
+  class SuggestorSaudavel
+  class SuggestorFactory
+  SuggestorRapido --|> SuggestorBase
+  SuggestorSaudavel --|> SuggestorBase
+}
+
+package com.cheffai.llm {
+  class LLMClient {
+    -String apiKey
+    -String apiUrl
+    +requestRecipes(...)
+  }
+}
+
+com.cheffai.cli.CLI --> User
+CLI --> SuggestorBase
+SuggestorBase --> LLMClient
+Recipe "1" *-- "*" Ingredient : contains
+@enduml
